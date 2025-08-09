@@ -8,13 +8,22 @@ import Connections from './pages/Connections'
 import Discover from './pages/Discover'
 import CreatePost from './pages/CreatePost'
 import Profile from './pages/Profile' // Make sure to import Profile
-import {useUser} from '@clerk/clerk-react'
+import {useUser,useAuth} from '@clerk/clerk-react'
 // import { Layout } from 'lucide-react'
 import Layout from './pages/Layout.jsx'
 import {Toaster} from 'react-hot-toast'
+import { useEffect } from 'react'
+// import { get } from 'mongoose'
 
 const App = () => {
   const {user}= useUser()
+  const {getToken}=useAuth()
+
+  useEffect(()=>{
+    if(user){
+      getToken().then((token)=>console.log(token))
+    }
+  },[user])
   return (
     <>
     <Toaster/>
