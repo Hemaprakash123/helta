@@ -3,6 +3,7 @@ import fs from 'fs'
 import imagekit from '../configs/imageKit.js';
 import Post from '../models/Post.js';
 import { err } from 'inngest/types';
+import User from '../models/User.js';
 
 export const addPost=async(req,res)=>{
     try {

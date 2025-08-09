@@ -1,6 +1,6 @@
 import fs from 'fs'
 import imagekit from '../configs/imageKit.js';
-import Message from '../models/Message';
+import Message from '../models/Message.js';
 
 //create an empty object to store SS Event connections
 const connections={};
@@ -8,7 +8,7 @@ const connections={};
 //Controller function for the SSE endpoint
 
 export const sseController=(req,res)=>{
-    const {userId}=req.param
+    const {userId}=req.params
     console.log('new Client Connected :' ,userId)
     //set sse header
 
@@ -43,7 +43,7 @@ export const sendMessage=async(req,res)=>{
         const {to_user_id,text}=req.body;
         const image=req.file;
 
-        let media_utl='';
+        let media_url='';
         let message_type=image?'image':'text';
 
         if(message_type==='image'){

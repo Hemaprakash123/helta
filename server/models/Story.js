@@ -7,10 +7,10 @@ const storySchema=new mongoose.Schema({
     media_type:{type:String,enum:['text','image','video']},
     views_count:[{type:String,ref:'User'}],
     background_color:{type:String},
-    
+
 
 },{timestamps:true,minimize:false})
 
-const  Post=mongoose.model('Story',storySchema)
+const Story=mongoose.model('Story',storySchema)
 
-export default Post;
+export default Story;
